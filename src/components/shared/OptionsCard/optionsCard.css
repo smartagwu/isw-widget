@@ -1,0 +1,45 @@
+.options-component {
+    width: 100%;
+    display: flex;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px 20px;
+    flex-direction: row;
+    background: #F2F2F2;
+}
+
+.options-component > div {
+    margin: auto 0px;
+}
+
+.options-component .image {
+    width: auto;
+    height: auto;
+    flex: 0 0 auto;
+    padding-right: 20px;
+}
+
+.options-component .image image {
+    object-fit: cover;
+}
+
+.options-component .content {
+    flex: 1 1 auto;
+    text-align: left;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.options-component .content .title {
+    margin: 0px;
+    font-size: 16px;
+    line-height: 15px;
+}
+
+.options-component .content .subtitle {
+    margin: 0px;
+    font-size: 13px;
+}
+
+.options-component .content .title span {
+    font-size: 14px;
+}
