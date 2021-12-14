@@ -39,7 +39,7 @@ export default function Signup(props:{ login:()=>void, showLoansOption:()=>void 
         setLoader(true);
         try {
             let response = await Request().get(SIGNUP);
-            if(response.responseCode === "00") props.showLoansOption();
+            if(response.responseCode === "00") showLoanOptions();
             else alert(response.responseMessage);
         } catch {
             alert("Failed to create account");
@@ -49,6 +49,10 @@ export default function Signup(props:{ login:()=>void, showLoansOption:()=>void 
 
     function onLoginClick() {
         Animation().slideOutPage("signup-parent", props.login);
+    }
+
+    function showLoanOptions() {
+        Animation().slideOutPage("signup-parent", props.showLoansOption);
     }
 
     useEffect(() => {

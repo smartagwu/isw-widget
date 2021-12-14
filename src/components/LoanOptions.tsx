@@ -4,7 +4,7 @@ import OptionsCard from "./shared/OptionsCard/component";
 import { LoanOptionType } from "../model/appTypes";
 
 export default function LoanOptions(props:{ onSelectOption:(type:LoanOptionType)=>void }) {
-    return <div style={{width: "100%", marginTop: "40px"}}>
+    return <div id="loan-option" className="App-parent" style={{width: "100%", marginTop: "40px"}}>
         <p className="Widget-content-title">Get Loan in Minutes</p>
         <div style={{marginTop: "30px"}}>
             <OptionsCard iconHeight='30px' iconWidth='30px' icon={wallet} content="Request Loan" style={{ marginBottom: "10px" }} callback={()=> props.onSelectOption("request-loan")}  />

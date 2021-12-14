@@ -2,6 +2,7 @@ import "../Auth/auth.css";
 import "../shared/input.css";
 import Button from "../shared/Button";
 import { useState, useEffect } from "react";
+import Animation from "../../utils/animation";
 import { SEND_OTP } from "../../requests/endpoints";
 import InputField from "../shared/InputField";import Request from "../../requests/request";
 
@@ -36,7 +37,7 @@ export default function CreditMethod(props: { validateOtp:(message:string)=>void
         setLoader(true);
         try {
             let response = await Request().get(SEND_OTP);
-            if(response.responseCode === "T0") props.validateOtp(response.responseMessage);
+            if(response.responseCode === "T0") validateOtp(response.responseMessage);
             else alert(response.responseMessage);
         } catch {
             alert("Failed to generate OTP, please try again");
@@ -44,11 +45,15 @@ export default function CreditMethod(props: { validateOtp:(message:string)=>void
         setLoader(false);
     }
 
+    function validateOtp(message:string) {
+        Animation().slideOutPage("credit-method-parent", () => props.validateOtp(message));
+    }
+
     useEffect(() => {
         document.getElementById("card-number")?.focus();
     });
 
-    return <form onSubmit={(e) => e.preventDefault()}>
+    return <form id="credit-method-parent" className="App-parent" onSubmit={(e) => e.preventDefault()}>
         <ul className="form-grid" style={{marginTop: "20px"}}>
             <li key="card-number"> <InputField type="number" placeHolder="Card Number" id="card-number" style={style} /> </li>
             <li key="expiry"> <InputField type="text" placeHolder="Expiry (MM/YY)" id="expiry" style={style} /> </li>

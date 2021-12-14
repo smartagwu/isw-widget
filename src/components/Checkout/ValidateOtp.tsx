@@ -3,6 +3,7 @@ import Otp from "../shared/Otp/Otp";
 import Button from "../shared/Button";
 import OffersType from "../../model/offers";
 import Request from "../../requests/request";
+import Animation from "../../utils/animation";
 import { VALIDATE_OTP, ACCEPT_OFFER } from "../../requests/endpoints";
 
 export default function ValidateOtp(props: { offers:OffersType, message:string, onSuccessful:()=> void}) {
@@ -32,7 +33,7 @@ export default function ValidateOtp(props: { offers:OffersType, message:string, 
     async function acceptOffer() {
         try {
             let response = await Request().post(ACCEPT_OFFER, props.offers);
-            if(response.responseCode === "00") props.onSuccessful();
+            if(response.responseCode === "00") onAcceptedOffer();
             else alert(response.responseMessage);
         } catch {
             alert("Failed to valide OTP, please try again");
@@ -40,11 +41,15 @@ export default function ValidateOtp(props: { offers:OffersType, message:string, 
         setLoader(false);
     }
 
-    return <>
+    function onAcceptedOffer() {
+        Animation().slideOutPage("validate-otp", () => props.onSuccessful());
+    }
+
+    return <div id="validate-otp" className="App-parent">
         <div style={{marginTop: "30px"}} >
             <p style={{fontSize: "12px", color: "rgba(0, 0, 0, 0.7)"}}>{"Kindly enter OTP sent to 080*****234"}</p>
             <Otp updateOtp={(otp:any) => updateOtp(otp)}/>
         </div>
         <Button id="signup-btn" text="Continue" isLoading={isLoading} style={{marginTop: "30px"}} callback={validateOtp} />
-    </>
+    </div>
 }

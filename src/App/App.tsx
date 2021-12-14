@@ -8,6 +8,7 @@ import OffersType from '../model/offers';
 import { RepaymentOptionType } from '../model/appTypes';
 import AppComponent from "./component";
 import { IframeMessage } from '../model/appTypes';
+import Animation from '../utils/animation';
 
 var offerInitialState:OffersType = {
       "offerId": "",
@@ -67,7 +68,7 @@ function App() {
             let response = await Request().get(GET_MULTIPLE_OFFERS);
             if(response.responseCode === "00") {
               updateOffers(response.offers);
-              setCurrentPage("offers");
+              onRequestLoanClick();
             }else alert(response.responseMessage);
         } catch {
             alert("Something went wrong, please try again");
@@ -76,6 +77,10 @@ function App() {
       alert("Repay loan feature is not available at the moment");
     }
   }
+
+  function onRequestLoanClick() {
+        Animation().slideOutPage("loan-option", () => setCurrentPage("offers"));
+    }
 
   function onOffersOptionSelected(offer:OffersType) {
     updateOffer(offer);
@@ -88,7 +93,7 @@ function App() {
   }
 
   function closeWidget(type:string){
-    if(type === "success") {
+    if(type === "success" && options.onSuccessful) {
       options.onSuccessful();
     }
 
