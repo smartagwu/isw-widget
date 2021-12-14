@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/isw-widget/static/css/main.e0b31633.chunk.css",
-    "main.js": "/isw-widget/static/js/main.8d4b29e1.chunk.js",
-    "main.js.map": "/isw-widget/static/js/main.8d4b29e1.chunk.js.map",
+    "main.css": "/isw-widget/static/css/main.b18d99a9.chunk.css",
+    "main.js": "/isw-widget/static/js/main.e38637c0.chunk.js",
+    "main.js.map": "/isw-widget/static/js/main.e38637c0.chunk.js.map",
     "runtime-main.js": "/isw-widget/static/js/runtime-main.03dc55a7.js",
     "runtime-main.js.map": "/isw-widget/static/js/runtime-main.03dc55a7.js.map",
     "static/js/2.113cf3a9.chunk.js": "/isw-widget/static/js/2.113cf3a9.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/3.795301a5.chunk.js": "/isw-widget/static/js/3.795301a5.chunk.js",
     "static/js/3.795301a5.chunk.js.map": "/isw-widget/static/js/3.795301a5.chunk.js.map",
     "index.html": "/isw-widget/index.html",
-    "static/css/main.e0b31633.chunk.css.map": "/isw-widget/static/css/main.e0b31633.chunk.css.map",
+    "static/css/main.b18d99a9.chunk.css.map": "/isw-widget/static/css/main.b18d99a9.chunk.css.map",
     "static/js/2.113cf3a9.chunk.js.LICENSE.txt": "/isw-widget/static/js/2.113cf3a9.chunk.js.LICENSE.txt",
     "static/media/bank.3cdad1f6.svg": "/isw-widget/static/media/bank.3cdad1f6.svg",
     "static/media/card.4ba3452b.svg": "/isw-widget/static/media/card.4ba3452b.svg",
@@ -21,7 +21,7 @@
   "entrypoints": [
     "static/js/runtime-main.03dc55a7.js",
     "static/js/2.113cf3a9.chunk.js",
-    "static/css/main.e0b31633.chunk.css",
-    "static/js/main.8d4b29e1.chunk.js"
+    "static/css/main.b18d99a9.chunk.css",
+    "static/js/main.e38637c0.chunk.js"
   ]
 }
