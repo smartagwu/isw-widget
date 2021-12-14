@@ -14,7 +14,7 @@ export default function AppComponent(props:AppComponentProps) {
     
     return (
         <div className="App">
-            <div className="App-overlay center"></div>
+            <div style={{opacity: "50%"}} className="App-overlay center"></div>
             <div className="App-widget center">
                 <div className="header">
                     <div style={{margin: "auto", marginRight: "0px", cursor: "pointer", width: "fit-content"}}>

@@ -3,6 +3,7 @@ import Button from "../shared/Button";
 import { useState, useEffect } from "react";
 import InputField from "../shared/InputField";
 import Request from "../../requests/request";
+import Animation from "../../utils/animation";
 import { SIGNUP } from "../../requests/endpoints"
 
 export default function Signup(props:{ login:()=>void, showLoansOption:()=>void }) {
@@ -46,11 +47,15 @@ export default function Signup(props:{ login:()=>void, showLoansOption:()=>void 
         setLoader(false);
     }
 
+    function onLoginClick() {
+        Animation().slideOutPage("signup-parent", props.login);
+    }
+
     useEffect(() => {
         document.getElementById("first-name")?.focus();
     });
 
-    return <form onSubmit={(e) => e.preventDefault()}>
+    return <form id="signup-parent" className="App-parent" onSubmit={(e) => e.preventDefault()}>
         <ul className="form-grid">
             <li key="first-name"> <InputField type="text" placeHolder="First Name" id="first-name" style={style} /> </li>
             <li key="last-name"> <InputField type="text" placeHolder="Last Name" id="last-name" style={style} /> </li>
@@ -59,6 +64,6 @@ export default function Signup(props:{ login:()=>void, showLoansOption:()=>void 
         </ul>
         <InputField type="password" placeHolder="Password" id="password" style={style} />
         <Button id="signup-btn" text="Continue" isLoading={isLoading} style={{marginTop: "20px"}} callback={validateInput} />
-        <p className="bottom-text">Already have an account? <span className="text-bold" onClick={props.login}>Login</span></p>
+        <p className="bottom-text">Already have an account? <span className="text-bold" onClick={onLoginClick}>Login</span></p>
     </form>
 }

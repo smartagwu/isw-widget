@@ -1,7 +1,8 @@
 {
   "name": "isw-widget",
   "version": "0.1.0",
-  "homepage”": "http://smartagwu.github.io/isw-widget/",
+  "private": true,
+  "homepage": "http://smartagwu.github.io/isw-widget",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^11.2.7",

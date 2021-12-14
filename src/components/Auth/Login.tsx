@@ -4,7 +4,8 @@ import Button from "../shared/Button";
 import { useState, useEffect } from "react";
 import InputField from "../shared/InputField";
 import Request from "../../requests/request";
-import { LOGIN } from "../../requests/endpoints"
+import Animation from "../../utils/animation";
+import { LOGIN } from "../../requests/endpoints";
 
 export default function Login(props:{ signup:()=>void, showLoansOption:()=>void}) {
     const style = { marginBottom: "10px" }
@@ -41,14 +42,18 @@ export default function Login(props:{ signup:()=>void, showLoansOption:()=>void}
         setLoader(false);
     }
 
+    function onSignupClick() {
+        Animation().slideOutPage("login-parent", props.signup);
+    }
+
     useEffect(() => {
         document.getElementById("email-phone")?.focus();
     });
 
-    return <form onSubmit={(e) => e.preventDefault()}>
+    return <form id="login-parent" className="App-parent" onSubmit={(e) => e.preventDefault()}>
         <InputField type="text" placeHolder="Email Address or Phone Number" id="email-phone" style={style} />
         <InputField type="password" placeHolder="Password" id="password" style={style} />
         <Button id="signup-btn" text="Login" isLoading={isLoading} style={{marginTop: "20px"}} callback={validateInput} />
-        <p className="bottom-text">New to Quickteller? <span className="text-bold" onClick={props.signup}>Sign up here</span></p>
+        <p className="bottom-text">New to Quickteller? <span className="text-bold" onClick={onSignupClick}>Sign up here</span></p>
     </form>
 }

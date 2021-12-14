@@ -1,6 +1,12 @@
 export default function Animation() {
+
+    return {slideOutPage}
     
     function slideOutPage(id:string, callback:()=>void){
-        setTimeout(callback, 1000);
+        const element = document.getElementById(id);
+        if(element){
+            element.style.transform = "translateX(-350px)";
+        }
+        setTimeout(callback, 400);
     }
 } 

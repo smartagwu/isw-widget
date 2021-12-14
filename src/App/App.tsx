@@ -50,7 +50,6 @@ function App() {
     bindEvent(window, "message", (e) => {
       var options:WidgetOptions = JSON.parse(e.data);
       updateOptions(options);
-      console.log(options.token)
       if(options.token && options.token !== "") validateToken();
       else setCurrentPage("signup");
     });
